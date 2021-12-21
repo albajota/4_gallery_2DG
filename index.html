@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comidas del mundo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link href="https://fonts.googleapis.com/css2?family=Bitter:wght@100;400;700&family=Raleway:wght@300;600;900&display=swap" rel="stylesheet">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html{
+            font-size: 32px;
+        }
+        img{
+            width: 100%;
+            height: auto;
+        }
+        a{
+            text-decoration: none;
+            color: var(--marron);
+            margin: 20px;
+            font-family: var(--bitter);
+            text-transform: uppercase;
+        }
+        :root{
+            --beige: #EED8C6;
+            --aguamarina: #607E76;
+            --naranja: #F2B035;
+            --marron: #A66D03;
+            --bitter: 'Bitter', serif;
+            --raleway: 'Raleway', sans-serif;
+        }
+        .container{
+            padding: 0 2em;
+        }
+        /*HEADER*/
+        body>header{
+            padding: 50px 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            text-align: center;
+            height: 100vh;
+            background-color: var(--beige);
+        }
+        h1{
+            font-family: var(--raleway);
+            font-weight: 600;
+            color: var(--aguamarina);
+            font-size: 2em;
+        }
+        h2{
+            font-family: var(--bitter);
+            font-weight: 400;
+            color: var(--marron);
+            font-size: 1.2em;
+        }
+        h3{
+            font-family: var(--raleway);
+        }
+        nav{
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1em;
+        }
+        nav a{
+            font-size: 0.75em;
+            color: var(--aguamarina);
+        }
+        /*MAIN*/
+        /*PAISES*/
+        #paises{
+            background-color: var(--aguamarina);
+            padding: 2em;
+        }
+        section:first-child .container{
+            display: flex;
+            flex-wrap: wrap;
+            color: var(--beige);         
+        }
+        section:first-child h2{
+            color: var(--naranja);
+            text-align: center;
+            font-family: var(--bitter);
+        }
+        .card_paises{
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            margin: 1em;
+            align-items: center;
+            width: 300px;
+            padding: 0.25em;
+        }
+        .paises_img{
+            width: 250px;
+            height: 250px;
+        }
+        .paises_img img{
+            width: 250px;
+            height: 250px;
+            object-fit: cover;
+            object-position: center;
+            border-radius: 250px;
+            box-shadow: black 0px 0px 20px;
+        }
+        .card_paises header{
+            text-align: center;
+            margin: 0.75em 0 0 0;
+        }
+        .card_paises header h3{
+            color: var(--beige);
+            font-weight: 300;
+        }
+        .card_paises header blockquote{
+            font-family: var(--raleway);
+            font-size: 0.5em;
+        }
+        /*COMIDAS*/
+        #platos{
+            background-color: var(--naranja);
+            padding: 2em;
+        }
+        #platos .container{
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+        section:last-child{
+            height: 100%;
+            background-color: var(--aguamarina);
+            color: var(--beige);
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+        section:last-child h2{
+            color: var(--aguamarina);
+            text-align: center;
+            font-family: var(--bitter);
+        }
+        .comida{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            align-items: center;
+            flex-grow: 1;
+            max-width: 800px;
+            min-width: 250px;
+            min-height: 350px;
+            /*height: 400px;
+            width: 400px;*/
+            padding: 0.5em;
+            margin: 0.3em;
+            background-color: whitesmoke;
+            border-radius: 20px;
+        }
+        .comida_img{
+            display: flex;
+            width: 100%;
+            /*max-height: 200px;*/
+            height: 250px;
+        }
+        .comida .comida_img img{
+            /*width: 100%;
+            height: 100%;*/
+            object-fit: cover;
+            flex-grow: 1;
+            object-position: center;
+            border-radius: 20px;
+        }
+        .comida header{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: row;
+            flex-grow: 1;
+        }
+        .comida h3{
+            font-size: 1em;
+            font-family: var(--bitter);
+            color: var(--aguamarina);
+        }
+        .comida header h3{
+            color: var(--aguamarina);
+        }
+        /*FOOTER*/
+        footer{
+            height: 25vh;
+            background-color: var(--beige);
+            color: var(--aguamarina);
+            padding: 2em;
+        }
+        footer h3{
+            font-weight: 100;
+            font-size: 1em;
+            text-align: left;
+        }
+        footer .container{
+            display: flex;
+            justify-content: flex-start;
+            margin-top: 0.75em;
+        }
+        footer p{
+            width: 17%;
+        }
+        footer p:last-child{
+            width: 50%;
+            text-align: right;
+        }
+        footer p a{
+            font-size: 0.5em;
+            text-transform: capitalize;
+            font-family: var(--bitter);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <hgroup>
+                <h1>Comidas del mundo</h1>
+                <h2>3 paises y una variedad de platos principales</h2>
+            </hgroup>
+            <nav>
+                <a href="#paises">Paises</a>
+                <a href="#platos">Platos</a>
+                <a href="#rrss">Redes</a>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <section id="paises">
+            <h2>Paises</h2>
+            <div class="container">
+                <div class="card_paises">
+                    <div class="paises_img">
+                        <img src="/images/paises/asian.jpg" alt="">
+                    </div>
+                    <header>
+                        <h3>Japón</h3>
+                        <blockquote>
+                            Mas allá de los límites del sabor.
+                        </blockquote>
+                    </header>
+                </div>
+                <div class="card_paises">
+                    <div class="paises_img">
+                        <img src="/images/paises/italy.jpg" alt="">
+                    </div>
+                    <header>
+                        <h3>Italia</h3>
+                        <blockquote>
+                            Frescura servida diariamente.
+                        </blockquote>
+                    </header>
+                </div>
+                <div class="card_paises">
+                    <div class="paises_img">
+                        <img src="/images/paises/turkish.jpg" alt="">
+                    </div>
+                    <header>
+                        <h3>Turquía</h3>
+                        <blockquote>
+                            Explosión de sabor.
+                        </blockquote>
+                    </header>
+                </div>
+            </div>
+        </section>
+        <section id="platos">
+            <h2>Platos</h2>
+            <div class="container">
+                <div class="comida">
+                    <div class="comida_img">
+                        <img src="/images/platos/asian_food/asian01.jpg" alt="">
+                    </div>
+                    <header>
+                        <h3>Udon</h3>
+                    </header>
+                </div>
+                <div class="comida">
+                    <div class="comida_img">
+                        <img src="/images/platos/asian_food/asian02.jpg" alt="">
+                    </div>
+                    <header>
+                        <h3>Gyozas</h3>
+                    </header>
+                </div>
+                <div class="comida">
+                    <div class="comida_img">
+                        <img src="/images/platos/asian_food/asian03.jpg" alt="">
+                    </div>
+                    <header>
+                        <h3>Gambas</h3>
+                    </header>
+                </div>
+                <div class="comida">
+                    <div class="comida_img">
+                        <img src="/images/platos/asian_food/asian04.jpg" alt="">
+                    </div>
+                    <header>
+                        <h3>Sushi</h3>
+                    </header>
+                </div>
+                <div class="comida">
+                    <div class="comida_img">
+                        <img src="/images/platos/asian_food/asian05.jpg" alt="">
+                    </div>
+                    <header>
+                        <h3>Sopa</h3>
+                    </header>
+                </div>
+                <div class="comida">
+                    <div class="comida_img">
+                        <img src="/images/platos/italian_food/italy01.jpg" alt="">
+                    </div>
+                    <header>
+                        <h3>Bolognesa</h3>
+                    </header>
+                </div>
+                <div class="comida">
+                    <div class="comida_img">
+                        <img src="/images/platos/italian_food/italy02.jpg" alt="">
+                    </div>
+                    <header>
+                        <h3>Pasta con parmesano</h3>
+                    </header>
+                </div>
+                <div class="comida">
+                    <div class="comida_img">
+                        <img src="/images/platos/italian_food/italy03.jpg" alt="">
+                    </div>
+                    <header>
+                        <h3>Carbonara</h3>
+                    </header>
+                </div>
+                <div class="comida">
+                    <div class="comida_img">
+                        <img src="/images/platos/italian_food/italy04.jpg" alt="">
+                    </div>
+                    <header>
+                        <h3>Tostadas</h3>
+                    </header>
+                </div>
+                <div class="comida">
+                    <div class="comida_img">
+                        <img src="/images/platos/italian_food/italy05.jpg" alt="">
+                    </div>
+                    <header>
+                        <h3>Pizza</h3>
+                    </header>
+                </div>
+                <div class="comida">
+                    <div class="comida_img">
+                        <img src="/images/platos/turkish_food/turkish01.jpg" alt="">
+                    </div>
+                    <header>
+                        <h3>Dulce de pistacho</h3>
+                    </header>
+                </div>
+                <div class="comida">
+                    <div class="comida_img">
+                        <img src="/images/platos/turkish_food/turkish02.jpg" alt="">
+                    </div>
+                    <header>
+                        <h3>Ensalada</h3>
+                    </header>
+                </div>
+                <div class="comida">
+                    <div class="comida_img">
+                        <img src="/images/platos/turkish_food/turkish03.jpg" alt="">
+                    </div>
+                    <header>
+                        <h3>Pan con queso feta</h3>
+                    </header>
+                </div>
+                <div class="comida">
+                    <div class="comida_img">
+                        <img src="/images/platos/turkish_food/turkish04.jpg" alt="">
+                    </div>
+                    <header>
+                        <h3>Carne</h3>
+                    </header>
+                </div>
+                <div class="comida">
+                    <div class="comida_img">
+                        <img src="/images/platos/turkish_food/turkish05.jpg" alt="">
+                    </div>
+                    <header>
+                        <h3>Dulces</h3>
+                    </header>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer id="rrss">
+        <h3>Redes</h3>
+        <div class="container">
+            <p><a href="#">Instagram</a></p>
+            <p><a href="#">Facebook</a></p>
+            <p><a href="#">Twitter</a></p>
+            <p><a href="#">E-mail</a></p>
+        </div>
+    </footer>
+</body>
+</html>
